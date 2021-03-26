@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.simple.approach.dao.UsersDao;
+import com.simple.approach.dto.UsersDto;
 
 @Controller
 public class UserController {
@@ -43,4 +45,39 @@ public class UserController {
 		return "users/usersListPage";
 	}
 	
+	/*
+	@RequestMapping(value="usersInsert.do", method=RequestMethod.POST)
+	public String usersInsert1(@RequestParam("name") String name,
+							   @RequestParam("phone") String phone) {
+		UsersDao usersDao = sqlSession.getMapper(UsersDao.class);
+		usersDao.usersInsert1(name, phone);
+		return "redirect:userListPage.do";
+	}
+	*/
+	@RequestMapping(value="usersInsert.do", method=RequestMethod.POST)
+	public String usersInsert2(UsersDto usersDto) {
+		UsersDao usersDao = sqlSession.getMapper(UsersDao.class);
+		usersDao.usersInsert2(usersDto);
+		return "redirect:userListPage.do";
+	}
+	
+	@RequestMapping(value="usersViewPage.do", method=RequestMethod.GET)
+	public String usersView(@RequestParam("no") int no, Model model) {
+		UsersDao usersDao = sqlSession.getMapper(UsersDao.class);
+		model.addAttribute("usersDto", usersDao.usersView(no));
+		return "users/usersViewPage";
+	}
+	
+	@RequestMapping(value="usersUpdate.do", method=RequestMethod.POST)
+	public String usersUpdate(UsersDto usersDto) {
+		UsersDao usersDao = sqlSession.getMapper(UsersDao.class);
+		usersDao.usersUpdate(usersDto);
+		return "redirect:usersViewPage.do?no=" + usersDto.getNo();
+	}
+	@RequestMapping(value="usersDelete.do", method=RequestMethod.POST)
+	public String usersDelete(@RequestParam("no") int no) {
+		UsersDao usersDao = sqlSession.getMapper(UsersDao.class);
+		usersDao.usersDelete(no);
+		return "redirect:userListPage.do";
+	}
 }

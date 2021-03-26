@@ -26,7 +26,7 @@
 				<c:forEach var="usersDto" items="${list}">
 					<tr>
 						<td>${usersDto.no}</td>
-						<td><a href="usersViewPage.do?no=${usersDto.no}"></a>${usersDto.name}</td>
+						<td><a href="usersViewPage.do?no=${usersDto.no}">${usersDto.name}</a></td>
 						<td>${usersDto.phone}</td>
 					</tr>
 				</c:forEach>

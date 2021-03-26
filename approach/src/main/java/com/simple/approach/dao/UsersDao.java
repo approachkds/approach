@@ -13,4 +13,13 @@ public interface UsersDao {
 	
 	public List<UsersDto> usersList();
 	
+	public void usersInsert1(String name, String phone);
+	
+	public void usersInsert2(UsersDto usersDto);
+	
+	public UsersDto usersView(int no);
+	
+	public void usersUpdate(UsersDto usersDto);
+	
+	public void usersDelete(int no);
 }
