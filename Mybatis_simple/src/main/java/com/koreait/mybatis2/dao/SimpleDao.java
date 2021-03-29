@@ -12,4 +12,7 @@ public interface SimpleDao {
 	
 	// 삽입 후 성공/실패 처리
 	public int simpleInsert(String writer, String title, String content);
+	
+	public SimpleDto simpleView(int no);
+	
 }

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.koreait.mybatis2.command.SimpleCommand;
 import com.koreait.mybatis2.command.SimpleInsertCommand;
 import com.koreait.mybatis2.command.SimpleListCommand;
+import com.koreait.mybatis2.command.SimpleViewCommand;
 
 @Controller
 public class SimpleController {
@@ -66,6 +67,16 @@ public class SimpleController {
 		// rttr에 저장된 값도 JSP는 EL로 처리하면 됩니다.(${insertResult}, ${afterInsert})
 		
 		return "redirect:simpleListPage.do";
+		
+	}
+	
+	@RequestMapping(value="simpleViewPage.do", method=RequestMethod.GET)
+	public String simpleViewPage(HttpServletRequest request, 
+								 Model model) {
+		model.addAttribute("request", request);
+		command = new SimpleViewCommand();
+		command.execute(sqlSession, model);
+		return "simple/simpleViewPage";
 		
 	}
 	

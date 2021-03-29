@@ -27,4 +27,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES (SIMPLE_SEQ.NEXTVAL, #{param1, jdbcType=VARCHAR}, #{param2, jdbcType=VARCHAR}, #{param3, jdbcType=VARCHAR}, SYSDATE)
 	</insert>
 	
+	<select id="simpleView" parameterType="int" resultType="com.koreait.mybatis2.dto.SimpleDto">
+		SELECT *
+		  FROM SIMPLE
+		WHERE NO = #{no}  
+	</select>
+	
 </mapper>
