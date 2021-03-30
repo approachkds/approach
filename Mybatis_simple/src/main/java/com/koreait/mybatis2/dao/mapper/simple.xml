@@ -33,4 +33,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE NO = #{no}  
 	</select>
 	
+	<update id="simpleUpdate">
+		UPDATE SIMPLE
+		  SET TITLE = #{param1},
+		    CONTENT = #{param2}
+		WHERE NO = #{param3}      
+	</update>
+	
+	<delete id="simpleDelete">
+		DELETE
+		  FROM SIMPLE
+		WHERE NO = #{no}  
+	</delete>
+	
 </mapper>
