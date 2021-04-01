@@ -6,7 +6,7 @@ import com.koreait.rest.dto.MemberDto;
 
 public interface MemberDao {
 
-	public List<String> memberList();
+	public List<MemberDto> memberList();
 	public MemberDto memberView(int no);
 	public int memberInsert(MemberDto memberDto);
 	public int memberUpdate(MemberDto memberDto);
