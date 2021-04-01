@@ -13,6 +13,11 @@ public class MyController {
 		return "index";
 	}
 	
+	// 테이블 사용하는 실전 연습용
+	@RequestMapping(value="memberManagePage.do", method=RequestMethod.GET)
+	public String memberManagePage() {
+		return "member/memberManagePage";
+	}
 	
 	
 }
