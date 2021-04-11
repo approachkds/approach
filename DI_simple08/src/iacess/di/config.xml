@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- <bean id="cprinter" class="iacess.di.ui.ColorPrinter"></bean> -->
+	
+		<bean id="printer" class="iacess.di.ui.MonoPrinter"></bean>
+
+
+	<bean id="hello" class="iacess.di.entity.Hello">
+
+		<property name="printer" ref="printer" />
+		
+		
+		<property name="persons">
+			
+			
+			<list>
+					<bean class="iacess.di.entity.Person">
+					   <property name="age" value="${person1.age}"></property>
+					   <property name="name" value="${person1.name}"></property>
+					
+					</bean>
+					
+					<bean class="iacess.di.entity.Person">
+					  <property name="age" value="${person2.age}"></property>
+					   <property name="name" value="${person2.name}"></property>
+					
+					</bean>
+					<bean class="iacess.di.entity.Person">
+					 <property name="age" value="${person3.age}"></property>
+					   <property name="name" value="${person3.name}"></property>
+					
+					</bean>
+			
+			</list>
+		
+		
+		</property>
+		</bean>
+		
+		<context:property-placeholder
+		location="classpath:iacess/di/person.properties"/>
+
+</beans>
