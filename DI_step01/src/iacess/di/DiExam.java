@@ -21,6 +21,8 @@ public class DiExam {
 		// set 방식
 		//Printer printer = new MonoPrinter();
 		Printer printer = new ColorPrinter();
+		
+		
 		Hello hello = new Hello();
 		hello.setPrinter(printer);
 		hello.print("hello");
