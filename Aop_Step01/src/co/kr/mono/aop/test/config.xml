@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="mono" class="iacess.di.ui.MonoPrinter"></bean>
+	<bean id="color" class="iacess.di.ui.ColorPrinter"></bean>
+	
+	<bean id="person" class="co.kr.mono.aop.entity.Person">
+		<property name="printer" ref="mono" />
+		<property name="name" value="홍길동" />
+		<property name="major" value="영문학" />
+		<property name="examList">
+			<list>
+				<bean class="co.kr.mono.aop.entity.ExamScore">
+					<property name="grade" value="1" />
+					<property name="kor" value="100" />
+					<property name="eng" value="99" />
+					<property name="mat" value="80" />
+				</bean>
+				<bean class="co.kr.mono.aop.entity.ExamScore">
+					<property name="grade" value="2" />
+					<property name="kor" value="70" />
+					<property name="eng" value="90" />
+					<property name="mat" value="90" />
+				</bean>
+				<bean class="co.kr.mono.aop.entity.ExamScore">
+					<property name="grade" value="3" />
+					<property name="kor" value="80" />
+					<property name="eng" value="90" />
+					<property name="mat" value="50" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="securtyAop" class="co.kr.mono.aop.advice.SecurtyAop" />
+	
+	
+	<aop:config>
+		<aop:aspect id="logAspect" ref="securtyAop">
+			<aop:pointcut expression="execution(public * co.kr.mono.aop.entity.Person.*(..))*" id="logAspectPointCut"/>
+			<aop:before method="logBefore" pointcut-ref="logAspectPointCut"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>
