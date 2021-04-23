@@ -25,7 +25,7 @@ public class SecurtyAop {
 		String datestr = format.format(Calendar.getInstance().getTime());
 		
 		System.out.println("### 조회 : " + AopTest.loginName);
-		System.out.println("### 날짜 : " +  datestr);
+		System.out.println("### 날짜 : " +  datestr); 
 		
 		System.out.println("### Before [" + joinPoint + "] 메서드 실행 전처리 수행");
 		for (Object arg : joinPoint.getArgs()) {

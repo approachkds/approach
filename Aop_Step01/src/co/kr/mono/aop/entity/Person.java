@@ -57,7 +57,7 @@ public class Person {
 	
 	public void print() {
 		
-		String str = "Person [name=]" + name + ", major=" + major + "]\n"
+		String str = "Person [name=" + name + ", major=" + major + "]\n"
 				+ "ExamList=" + examList + "]";
 		
 		printer.print(str);
@@ -65,3 +65,4 @@ public class Person {
 	
 	
 }
+

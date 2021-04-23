@@ -164,6 +164,8 @@
 	<!-- go 함수 -->
 	function _go(arg) {
 		var fns = _rest(arguments);
+		console.log(arguments);
+		
 		return _pipe.apply(null, fns)(arg);
 	}
 	
