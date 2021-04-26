@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SelectVOMapper">
+
+	<select id="findMsaleByMultiParam" resultType="Msales" parameterType="Msales">
+		SELECT PRODID
+		      ,PRODNM
+		      ,SALECNT
+		FROM MSALES
+		WHERE PRODID LIKE #{prodId}||'%'
+		  AND PRODNM LIKE #{prodNm}||'%'      
+	</select>  
+	
+	<select id="findMsale" resultType="Msales">
+		SELECT PRODID
+		      ,PRODNM
+		      ,SALECNT
+		FROM MSALES
+		WHERE PRODID = #{argProdId}      
+	</select>
+	   
+	<select id="findMsaleMap" resultType="map">
+		SELECT PRODID
+		      ,PRODNM
+		      ,SALECNT
+		FROM MSALES      
+	</select>   
+  
+  
+</mapper>
+

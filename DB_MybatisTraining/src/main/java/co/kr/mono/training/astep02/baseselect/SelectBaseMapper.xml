@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="SelectBaseMapper">
+  
   <select id="findAreaSales" resultType="co.kr.mono.training.vo.AreaSaleVO">
   	SELECT AREA_CD AREACD
     	,REGION_AREA REGIONAREA
@@ -16,13 +17,14 @@
         ,PROD_ID
   </select>
   
-  <!-- 
+   
   <select id="findMsale" resultType="Msales">
   	SELECT PRODID
      	  ,PRODNM
           ,SALECNT
 	FROM MSALES    
-  </select> -->
+  </select>
+  
   
 </mapper>
 

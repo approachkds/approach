@@ -5,7 +5,10 @@
 <configuration>
 
 	<typeAliases>
+	
 		<!--  <typeAlias alias="Msales" type="co.kr.mono.training.vo.MsalesVO"/> -->
+		<typeAlias alias="Msales" type="co.kr.mono.training.vo.MsalesVo"/>
+		<package name="co.kr.mono.training.nvo" />
 	</typeAliases>	
 	
   <environments default="development">
@@ -21,5 +24,9 @@
   </environments>
   <mappers>
     <mapper resource="co/kr/mono/training/astep02/baseselect/SelectBaseMapper.xml"/>
+    <mapper resource="co/kr/mono/training/astep03/select/SelectNVOMapper.xml"/>
+    <mapper resource="co/kr/mono/training/astep04/select/SelectVOMapper.xml"/>
+    <mapper resource="co/kr/mono/training/astep05/select/SelectDeptypeapper.xml"/>
+    <mapper resource="co/kr/mono/training/astep06/select/SelectCdmapper.xml"/>
   </mappers>
 </configuration>
